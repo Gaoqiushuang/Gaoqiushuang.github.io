@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Qiushuang的博客</title>
+  <title>Qiushuang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="摆放调整SKU摆放的调整时间—-如何衡量热度的变化情况1. 概述：SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。 2.热度波动指标">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Qiushuang的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/10/12/修改的摆放策略说明文档/index.html">
 <meta property="og:site_name" content="Qiushuang的博客">
+<meta property="og:description" content="摆放调整SKU摆放的调整时间—-如何衡量热度的变化情况1. 概述：SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。 2.热度波动指标">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/杉树项目/ShunFeng/摆放模块/摆放策略调整说明文档/说明文档_1011/热度波动.png">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/杉树项目/ShunFeng/摆放模块/摆放策略调整说明文档/说明文档_1011/移库变动.png">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/杉树项目/ShunFeng/摆放模块/摆放策略调整说明文档/说明文档_1011/六月.png">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/杉树项目/ShunFeng/摆放模块/摆放策略调整说明文档/说明文档_1011/七月.png">
+<meta property="og:updated_time" content="2018-10-12T05:28:41.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qiushuang的博客">
+<meta name="twitter:description" content="摆放调整SKU摆放的调整时间—-如何衡量热度的变化情况1. 概述：SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。 2.热度波动指标">
+<meta name="twitter:image" content="c:/Users/Administrator/Desktop/杉树项目/ShunFeng/摆放模块/摆放策略调整说明文档/说明文档_1011/热度波动.png">
   
     <link rel="alternative" href="/atom.xml" title="Qiushuang的博客" type="application/atom+xml">
   
@@ -150,70 +159,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-修改的摆放策略说明文档" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摆放调整"><a href="#摆放调整" class="headerlink" title="摆放调整"></a>摆放调整</h2><h2 id="SKU摆放的调整时间—-如何衡量热度的变化情况"><a href="#SKU摆放的调整时间—-如何衡量热度的变化情况" class="headerlink" title="SKU摆放的调整时间—-如何衡量热度的变化情况"></a>SKU摆放的调整时间—-如何衡量热度的变化情况</h2><h3 id="1-概述："><a href="#1-概述：" class="headerlink" title="1. 概述："></a>1. 概述：</h3><p>SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。</p>
+<h3 id="2-热度波动指标："><a href="#2-热度波动指标：" class="headerlink" title="2.热度波动指标："></a>2.热度波动指标：</h3><h4 id="2-1-热度定义："><a href="#2-1-热度定义：" class="headerlink" title="2.1  热度定义："></a>2.1  热度定义：</h4><script type="math/tex; mode=display">
+heat = avg(sale\_qty)</script><p>为衡量实际销量对摆放的影响情况，我们用销量的平均值来作为sku的热度，当sku的热度发生一定程度的波动时，考虑重新进行摆放。</p>
+<h4 id="2-2-第i天热度状态定义："><a href="#2-2-第i天热度状态定义：" class="headerlink" title="2.2 第i天热度状态定义："></a>2.2 第i天热度状态定义：</h4><script type="math/tex; mode=display">
+x_i = avg(sale\_qty_i)</script><p>$sale_qty_i$为当前sku第i天前一段时间内的平均销量。</p>
+<h4 id="2-3-对于一个SKU-n天内热度波动情况"><a href="#2-3-对于一个SKU-n天内热度波动情况" class="headerlink" title="2.3 对于一个SKU n天内热度波动情况"></a>2.3 对于一个SKU n天内热度波动情况</h4><script type="math/tex; mode=display">
+fluc = \frac{\frac{1}{n}\sum_{i=1}^{n}|x_i-x_0|}{x_0}</script><p>对于一个sku来说，$fluc$指标衡量了n天之内该sku相对热度的平均变化幅度。</p>
+<h4 id="2-4-对于所有SKU-n天内热度波动总体情况"><a href="#2-4-对于所有SKU-n天内热度波动总体情况" class="headerlink" title="2.4 对于所有SKU n天内热度波动总体情况"></a>2.4 对于所有SKU n天内热度波动总体情况</h4><p>SKU 的总体热度波动状况定义为全部 sku 热度波动的加权平均值，即</p>
+<script type="math/tex; mode=display">
+fluc_{all} = \sum_{k=1}^{N_{sku}}weight_kfluc_k.</script><p>为了平衡由于sku初始销量顺序给相对热度的变动带来的影响，根据sku的初始顺序给每个sku添加权重，$rank_k$为当前sku第0天销量排序序号，取值范围为从1到$N_{sku}$。相即</p>
+<script type="math/tex; mode=display">
+weight_k = \frac{N_{sku}+1-rank_k}{N_{sku}+1}</script><p>总体波动情况：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+fluc_{all} &=\sum_{k=1}^{N_{sku}}weight_kfluc_k \\&= 
+\sum_{k=1}^{N_{sku}}\left( \frac{N_{sku}+1-rank_k}{N_{sku}+1}\frac{\frac{1}{n}\sum_{i=1}^{n}|x_i^k-x_0^k|}{x_0^k}\right)\\
+\end{align}</script><p>综上，我们将$fluc_{all}$定义为相对热度总体波动指标，当波动指标增长到一定阈值时，我们考虑调整摆放，进行移库。</p>
+<h3 id="3-初步效果"><a href="#3-初步效果" class="headerlink" title="3. 初步效果"></a>3. 初步效果</h3><h4 id="3-1-波动指标随时间变化情况"><a href="#3-1-波动指标随时间变化情况" class="headerlink" title="3.1 波动指标随时间变化情况"></a>3.1 波动指标随时间变化情况</h4><p>根据上述定义，我们绘制了如下月份中波动指标随天数的变化情况，由图中曲线分布情况可知，总体波动指标的变动情况呈现出随着天数增加单调递增的趋势，且在大概10天后表现出较为明显的线性关系。</p>
+<p><img src="C:\Users\Administrator\Desktop\杉树项目\ShunFeng\摆放模块\摆放策略调整说明文档\说明文档_1011\热度波动.png" alt="热度波动"></p>
+<h4 id="3-2-移库数量随时间变化情况"><a href="#3-2-移库数量随时间变化情况" class="headerlink" title="3.2 移库数量随时间变化情况"></a>3.2 移库数量随时间变化情况</h4><p>此外，我们对重置摆放的周期天数与移库数量的关系进行探讨，绘制了如下月份移库数量与调整摆放间隔天数的关系图，由曲线分布情况我们可以得知，在天数间隔较小时，移库数量的增长速度较快，在大概15天后移库数量的增长趋势明显趋于平缓。</p>
+<p><img src="C:\Users\Administrator\Desktop\杉树项目\ShunFeng\摆放模块\摆放策略调整说明文档\说明文档_1011\移库变动.png" alt="移库变动"></p>
+<h4 id="3-3-波动指标随移库数量变化情况"><a href="#3-3-波动指标随移库数量变化情况" class="headerlink" title="3.3 波动指标随移库数量变化情况"></a>3.3 波动指标随移库数量变化情况</h4><p>接下来，我们分析了波动指标和移库数量的关系，分析了各个月份的情况之后发现，波动指标与移库数量呈现较强的线性相关性。下图以六七月份为例：</p>
+<p><img src="C:\Users\Administrator\Desktop\杉树项目\ShunFeng\摆放模块\摆放策略调整说明文档\说明文档_1011\六月.png" alt="六月"></p>
+<p><img src="C:\Users\Administrator\Desktop\杉树项目\ShunFeng\摆放模块\摆放策略调整说明文档\说明文档_1011\七月.png" alt="七月"></p>
+<h4 id="3-4-基于波动指标对摆放调整周期的建议策略"><a href="#3-4-基于波动指标对摆放调整周期的建议策略" class="headerlink" title="3.4 基于波动指标对摆放调整周期的建议策略"></a>3.4 基于波动指标对摆放调整周期的建议策略</h4><p>经分析发现，当波动指标在0.4~0.6区间内时，移库数量较为合理。参考以往某大型电商的实际经验，由于每个月份热度的变化程度收到多重因素的影响，必然导致某些月份波动指标整体偏高或者偏低，因此我们在推荐最佳移库周期时，设定了移库时间下线$T_{bottom}$和上线$T_{upper}$(例如分别设置为$T_{bottom}$=10,$T_{upper}$=30)</p>
+<ul>
+<li><p>波动指标阈值:  $F_{threshold}$</p>
+</li>
+<li><p>波动指标达到 $F_{threshold}$的时间$T_{threshold}$</p>
+</li>
+<li><p>推荐移库周期：$T_{optimal} $</p>
+<script type="math/tex; mode=display">
+T_{optimal} = min\{max\{T_{threshold}, T_{bottom}\},T_{upper}\}</script><p>为了避免某些月份的异常波动，当$T_{threshold}$低于$T_{bottom}$时，我们将实际移库周期设置为下线$T_{bottom}$；当$T_{threshold}$高于$T_{upper}$时，我们将实际移库周期设置为$T_{upper}$。</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/12/修改的摆放策略说明文档/" class="archive-article-date">
-  	<time datetime="2018-10-12T08:30:06.302Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/12/修改的摆放策略说明文档/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/12/hello-world/" class="archive-article-date">
-  	<time datetime="2018-10-12T06:04:35.045Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/12/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -236,8 +350,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
