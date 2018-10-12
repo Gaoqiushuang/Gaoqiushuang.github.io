@@ -367,6 +367,13 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
++</script>
++<scipt type="text/javascript" src="/resources/love.js"></scipt>
++<scipt type="text/javascript" src="/resources/float.js"></scipt>
++<scipt type="text/javascript" src="/resources/typewriter.js"></scipt>
++<scipt type="text/javascript" color=0,104,183 opacity=1 zendex=-1 count=50 src="/resources/partical.js">
++</scipt>
+
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -576,5 +583,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 </body>
 </html>
