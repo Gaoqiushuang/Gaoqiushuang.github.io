@@ -875,10 +875,10 @@ a {
   background-size: 70%;
 }
 #header .header-nav .social .GitHub {
-  background: url("/img/GitHub.png") center no-repeat #000;
-  -webkit-background-size: 75%;
-  -moz-background-size: 75%;
-  background-size: 75%;
+  background: url("/img/GitHub.png") center no-repeat #fff;
+  -webkit-background-size: 70%;
+  -moz-background-size: 70%;
+  background-size: 70%;
 }
 #header .header-nav .social .Quora {
   background: url("/img/Quora.png") center no-repeat #b92b27;
