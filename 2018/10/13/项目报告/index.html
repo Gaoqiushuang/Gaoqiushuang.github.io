@@ -24,15 +24,16 @@
 <meta property="og:site_name" content="Qiushuang的博客">
 <meta property="og:description" content="摆放调整SKU摆放的调整时间—-如何衡量热度的变化情况1. 概述：SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/10/13/项目报告/热度波动.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/项目报告/E:/blog/source/_posts/项目报告/热度波动.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/项目报告/E:/blog/source/_posts/项目报告/热度波动.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/项目报告/E:/blog/source/_posts/项目报告/六月.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/项目报告/E:/blog/source/_posts/项目报告/七月.png">
-<meta property="og:updated_time" content="2018-10-13T06:37:59.829Z">
+<meta property="og:updated_time" content="2018-10-13T06:47:09.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目报告">
 <meta name="twitter:description" content="摆放调整SKU摆放的调整时间—-如何衡量热度的变化情况1. 概述：SKU的销售热度会随着时间的变化产生偏差，及时地对摆放进行调整，可以有效的提高拣选效率；但过于频繁的调整库位的话，反而会需要进行大量移库，白白的浪费了很多人力。对此我们设计了如下的波动指标，对商品的相对热度以天为维度进行监控，当波动指标超出一个阈值（由仓库人员适合进行的移库数量决定）时，则会建议进行一次摆放的调整。">
-<meta name="twitter:image" content="http://yoursite.com/2018/10/13/项目报告/E:/blog/source/_posts/项目报告/热度波动.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/13/项目报告/热度波动.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -325,6 +326,7 @@ fluc_{all} &=\sum_{k=1}^{N_{sku}}weight_kfluc_k \\&=
 \sum_{k=1}^{N_{sku}}\left( \frac{N_{sku}+1-rank_k}{N_{sku}+1}\frac{\frac{1}{n}\sum_{i=1}^{n}|x_i^k-x_0^k|}{x_0^k}\right)\\
 \end{align}</script><p>综上，我们将$fluc_{all}$定义为相对热度总体波动指标，当波动指标增长到一定阈值时，我们考虑调整摆放，进行移库。</p>
 <h3 id="3-初步效果"><a href="#3-初步效果" class="headerlink" title="3. 初步效果"></a>3. 初步效果</h3><h4 id="3-1-波动指标随时间变化情况"><a href="#3-1-波动指标随时间变化情况" class="headerlink" title="3.1 波动指标随时间变化情况"></a>3.1 波动指标随时间变化情况</h4><p>根据上述定义，我们绘制了如下月份中波动指标随天数的变化情况，由图中曲线分布情况可知，总体波动指标的变动情况呈现出随着天数增加单调递增的趋势，且在大概10天后表现出较为明显的线性关系。</p>
+<p><img src="/2018/10/13/项目报告/热度波动.png" alt=""></p>
 <p><img src="/2018/10/13/项目报告/E:/blog\source\_posts\项目报告\热度波动.png" alt="热度波动"></p>
 <h4 id="3-2-移库数量随时间变化情况"><a href="#3-2-移库数量随时间变化情况" class="headerlink" title="3.2 移库数量随时间变化情况"></a>3.2 移库数量随时间变化情况</h4><p>此外，我们对重置摆放的周期天数与移库数量的关系进行探讨，绘制了如下月份移库数量与调整摆放间隔天数的关系图，由曲线分布情况我们可以得知，在天数间隔较小时，移库数量的增长速度较快，在大概15天后移库数量的增长趋势明显趋于平缓。</p>
 <p><img src="/2018/10/13/项目报告/E:/blog\source\_posts\项目报告\热度波动.png" alt="热度波动"></p>
@@ -353,7 +355,7 @@ T_{optimal} = min\{max\{T_{threshold}, T_{bottom}\},T_{upper}\}</script><p>为�
         <p><span>本文标题:</span><a href="/2018/10/13/项目报告/">项目报告</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Qiushuang Gao</a></p>
         <p><span>发布时间:</span>2018-10-13, 14:33:53</p>
-        <p><span>最后更新:</span>2018-10-13, 14:37:59</p>
+        <p><span>最后更新:</span>2018-10-13, 14:47:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/13/项目报告/" title="项目报告">http://yoursite.com/2018/10/13/项目报告/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/10/13/项目报告/　　作者: Qiushuang Gao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -571,5 +573,21 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="/resources/typewriter.js"></script>
 <script type="text/javascript" color=0,104,183 opacity=1 zindex=-1 count=50 src="/resources/particle.js"></script>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 </body>
 </html>
