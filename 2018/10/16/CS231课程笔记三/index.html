@@ -24,20 +24,13 @@
 <meta property="og:site_name" content="Qiushuang的博客">
 <meta property="og:description" content="损失函数和参数优化 支持向量机">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_i">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=y_i">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=f%28x_i%2CW%29">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=s">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=s_j%3Df%28x_i%2CW%29_j">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=y_i">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=max%280%2C-%29%5E2">
 <meta property="og:image" content="http://yoursite.com/2018/10/16/CS231课程笔记三/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/16/CS231课程笔记三/2.png">
-<meta property="og:updated_time" content="2018-10-17T15:46:00.843Z">
+<meta property="og:updated_time" content="2018-10-18T09:14:22.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS231课程笔记3--损失函数与优化">
 <meta name="twitter:description" content="损失函数和参数优化 支持向量机">
-<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=x_i">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/16/CS231课程笔记三/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -317,11 +310,11 @@
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>损失函数是用来定量地描述分类模型的效果并以此选择最优的权重矩阵W的函数。给定数据集${(x_i,y_i)}$,在数据分类问题中即为图像数据及对应的标签，我们可以通过调整权重矩阵，是的评分函数的结果与训练数据集中图片的真实标签一致，即评分函数在正确的分类的位置应当得到最高的评分（score）。</p>
 <p>损失函数的表达形式为</p>
 <script type="math/tex; mode=display">
-L = \frac{1}{N}\sum_iL_i(f(x_i,W),y_i)</script><h4 id="多类别SVM损失函数"><a href="#多类别SVM损失函数" class="headerlink" title="多类别SVM损失函数"></a>多类别SVM损失函数</h4><p>第i个数据中包含图像<img src="https://www.zhihu.com/equation?tex=x_i" alt="x_i">的像素和代表正确类别的标签<img src="https://www.zhihu.com/equation?tex=y_i" alt="y_i">。评分函数输入像素数据，然后通过公式<img src="https://www.zhihu.com/equation?tex=f%28x_i%2CW%29" alt="f(x_i,W)">来计算不同分类类别的分值。这里我们将分值简写为<img src="https://www.zhihu.com/equation?tex=s" alt="s">。比如，针对第j个类别的得分就是第j个元素：<img src="https://www.zhihu.com/equation?tex=s_j%3Df%28x_i%2CW%29_j" alt="s_j=f(x_i,W)_j">。针对第i个数据的多类SVM的损失函数定义如下：</p>
+L = \frac{1}{N}\sum_iL_i(f(x_i,W),y_i)</script><h4 id="多类别SVM损失函数"><a href="#多类别SVM损失函数" class="headerlink" title="多类别SVM损失函数"></a>多类别SVM损失函数</h4><p>第i个数据中包含图像$x_i$的像素和代表正确类别的标签$y_i$。评分函数输入像素数据，然后通过公式$f(x_i,W)$来计算不同分类类别的分值。这里我们将分值简写为$s$。比如，针对第j个类别的得分就是第j个元素：$s_j = f(x_i,W)_j$。针对第i个数据的多类SVM的损失函数定义如下：</p>
 <script type="math/tex; mode=display">
-L_i = \sum_{j\neq y_i}max(0,s_j-s_{y_i}+\Delta)</script><p>SVM的损失函数想要正确分类类别<img src="https://www.zhihu.com/equation?tex=y_i" alt="y_i">的分数比不正确类别分数高，而且至少要高$\Delta$。如果不满足这点，就开始计算损失值。$\Delta$可以取值为1。$\max(0,)$函数，它常被称为<strong>折叶损失（hinge loss）</strong>。总的损失函数为：</p>
+L_i = \sum_{j\neq y_i}max(0,s_j-s_{y_i}+\Delta)</script><p>SVM的损失函数想要正确分类类别$y_i​$的分数比不正确类别分数高，而且至少要高$\Delta​$。如果不满足这点，就开始计算损失值。$\Delta​$可以取值为1。$\max(0,)​$函数，它常被称为<strong>折叶损失（hinge loss）</strong>。总的损失函数为：</p>
 <script type="math/tex; mode=display">
-L = \frac{1}{N}\sum_iL_i</script><p>平方折叶损失SVM（即L2-SVM），它使用的是<img src="https://www.zhihu.com/equation?tex=max%280%2C-%29%5E2" alt="max(0,-)^2">，将更强烈（平方地而不是线性地）地惩罚过界的边界值。不使用平方是更标准的版本，但是在某些数据集中，平方折叶损失会工作得更好。可以通过交叉验证来决定到底使用哪个。</p>
+L = \frac{1}{N}\sum_iL_i</script><p>平方折叶损失SVM（即L2-SVM），它使用的是$\max(0,)^2$，将更强烈（平方地而不是线性地）地惩罚过界的边界值。不使用平方是更标准的版本，但是在某些数据集中，平方折叶损失会工作得更好。可以通过交叉验证来决定到底使用哪个。</p>
 <h4 id="损失函数正则化"><a href="#损失函数正则化" class="headerlink" title="损失函数正则化"></a>损失函数正则化</h4><p>在训练模型的过程中，要防止模型的过拟合，通常的解决方式是加入正则项。在这里为损失函数添加一个附加的项。这是要分类器除了需要拟合训练集之外，同时鼓励模型以某种方式来选择更简单的W，这里的简单取决于任务的规模和使用的模型。假设正则项惩罚（记为R），这样标准损失函数现在就有两项，一个是损失值项和正则化项。这里有一个超参数$\lambda$用来平衡这两个项。</p>
 <p><img src="/2018/10/16/CS231课程笔记三/1.png" alt=""></p>
 <p>常见的正则项：</p>
@@ -337,7 +330,7 @@ L = \frac{1}{N}\sum_iL_i</script><p>平方折叶损失SVM（即L2-SVM），它�
         <p><span>本文标题:</span><a href="/2018/10/16/CS231课程笔记三/">CS231课程笔记3--损失函数与优化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Qiushuang Gao</a></p>
         <p><span>发布时间:</span>2018-10-16, 16:37:08</p>
-        <p><span>最后更新:</span>2018-10-17, 23:46:00</p>
+        <p><span>最后更新:</span>2018-10-18, 17:14:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/16/CS231课程笔记三/" title="CS231课程笔记3--损失函数与优化">http://yoursite.com/2018/10/16/CS231课程笔记三/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/10/16/CS231课程笔记三/　　作者: Qiushuang Gao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
