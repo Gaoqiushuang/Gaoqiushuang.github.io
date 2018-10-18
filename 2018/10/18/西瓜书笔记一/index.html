@@ -16,17 +16,24 @@
 
 
 
-<meta name="description" content="菜鸟程序媛，算法实习生~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ABOUT ME">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="决策树构建基本流程 划分属性选择 剪枝处理 连续与缺失值处理">
+<meta name="keywords" content="西瓜书,机器学习算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="西瓜书笔记1--决策树算法">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/西瓜书笔记一/index.html">
 <meta property="og:site_name" content="Qiushuang的博客">
-<meta property="og:description" content="菜鸟程序媛，算法实习生~">
+<meta property="og:description" content="决策树构建基本流程 划分属性选择 剪枝处理 连续与缺失值处理">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T06:57:05.198Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/5.png">
+<meta property="og:updated_time" content="2018-10-18T09:07:08.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ABOUT ME">
-<meta name="twitter:description" content="菜鸟程序媛，算法实习生~">
+<meta name="twitter:title" content="西瓜书笔记1--决策树算法">
+<meta name="twitter:description" content="决策树构建基本流程 划分属性选择 剪枝处理 连续与缺失值处理">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/18/西瓜书笔记一/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ABOUT ME | Qiushuang的博客</title>
+<title>西瓜书笔记1--决策树算法 | Qiushuang的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -68,7 +75,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -256,11 +263,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-西瓜书笔记一" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2018-10-12T12:30:23.000Z" itemprop="datePublished">2018-10-12</time>
+      <a href="/2018/10/18/西瓜书笔记一/" class="article-date">
+      <time datetime="2018-10-18T06:45:10.000Z" itemprop="datePublished">2018-10-18</time>
 </a>
 
 
@@ -275,7 +282,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ABOUT ME
+      西瓜书笔记1--决策树算法
     </h1>
   
 
@@ -283,8 +290,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习算法/">机器学习算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/西瓜书/">西瓜书</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -292,36 +307,132 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>决策树构建基本流程</p>
+<p>划分属性选择</p>
+<p>剪枝处理</p>
+<p>连续与缺失值处理</p>
+<a id="more"></a>
+<h2 id="分类决策树"><a href="#分类决策树" class="headerlink" title="分类决策树"></a>分类决策树</h2><p>分类决策树的结构主要包括：根节点，分支，非叶子节点和叶子节点。分支代表按照对应属性的划分行为，非叶子节点表示指示划分的条件，代表按照哪个属性对数据进行划分，叶子节点表示分类后所得的分类标签。</p>
+<h3 id="1-决策树构建基本流程"><a href="#1-决策树构建基本流程" class="headerlink" title="1.决策树构建基本流程"></a>1.决策树构建基本流程</h3><p>决策树的构建过程是一个递归过程，<strong>首先按照某种规则依次选属性</strong>，当选择了一个属性作为划分属性后，分支对应了属性的各个离散值，在以下情形下会产生叶子节点，即递归返回：</p>
+<ul>
+<li>当前节点包含的样本全部属于同一类别</li>
+<li>当前属性集为空</li>
+<li>当前节点包含的所有样本在所有属性上取值相同 —-类别标记为该节点所含样本最多的类别</li>
+<li>当前节点包含的样本集合为空  —-类别标记为其父节点所含样本最多的类别</li>
+</ul>
+<p><img src="/2018/10/18/西瓜书笔记一/1.png" alt=""></p>
+<h3 id="2-划分属性选择算法"><a href="#2-划分属性选择算法" class="headerlink" title="2.划分属性选择算法"></a>2.划分属性选择算法</h3><p>划分属性选择的算法包括：</p>
+<ul>
+<li><p><strong>信息增益</strong>（ID3）</p>
+</li>
+<li><p><strong>增益率</strong>    （C4.5）</p>
+</li>
+<li><p><strong>基尼指数</strong>  (CART)</p>
+<p>随着划分的进行，我们希望决策树的分支节点所包含的样本尽可能属于同一类别，即节点的纯度越来越高。</p>
+</li>
+</ul>
+<h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><p><strong>信息熵</strong>是度量样本集合纯度的一种常用指标，假定当前样本集合$D$中第$k$类样本所占的比例为$p_k$($k = 1,2,…,|y|)$,则$D$的信息熵定义为</p>
+<script type="math/tex; mode=display">
+Ent(D) = -\sum_{k=1}^{|y|}p_k\log_2p_k</script><p>$Ent(D)$的值越小，则$D$的纯度就越高。</p>
+<p><strong>信息增益</strong>衡量了使用属性$a$来划分数据时所获得的纯度提升。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+Gain(D,a) &= \sum_{v=1}^{V}\frac{|D^v|}{|D|}Pure(D^v)-Pure(D)\\
+&=Ent(D)- \sum_{v=1}^{V}\frac{|D^v|}{|D|}Ent(D^v)
+\end{align}</script><p>因此最优的划分属性$a$为$a^* = \arg\max_{a\in A}Gain(D,a)$</p>
+<h4 id="增益率"><a href="#增益率" class="headerlink" title="增益率"></a>增益率</h4><p>信息增益准则对可取数目较多的属性有所偏好，例如若加入“编号”属性，信息增益会很大，因为每个分支的纯度都已达到最大，但不具备泛化能力。为减少这种不利影响，采用<strong>增益率</strong>来选择最优划分属性。</p>
+<p>属性$a$的固有值定义为</p>
+<script type="math/tex; mode=display">
+IV(a) = -\sum_{v=1}^V\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|}</script><p>属性$a$可能的取值数目越多，$IV(a)$的值会越大</p>
+<p><strong>增益率</strong>定义为</p>
+<script type="math/tex; mode=display">
+Gain\_ratio(D,a)=\frac{Gain(D,a)}{IV(a)}</script><p>增益率准则对可取值数目较少的属性有所偏好，C4.5算法采用启发式，先从候选划分属性中找出信息增益率高于平均水平的属性，再从中选择增益率最高的。</p>
+<h4 id="基尼指数"><a href="#基尼指数" class="headerlink" title="基尼指数"></a>基尼指数</h4><p>基尼值是另一种度量数据集纯度的方式。</p>
+<script type="math/tex; mode=display">
+Gini(D)= \sum_{k=1}^{|y|}\sum_{k'\neq k}p_kp_{k'}=1-\sum_{k=1}^{|y|}p_k^2</script><p>基尼值反映了从数据集$D$中随机抽取两个样本，其类别标记不一致的概率。$Gini(D)$越小，$D$的纯度越高。属性$a$的基尼指数定义为</p>
+<script type="math/tex; mode=display">
+Gini\_index(D,a) = \sum_{v=1}^{V}\frac{|D^v|}{|D|}Gini(D^v)</script><p>因此最优的划分属性$a$为$a^* = \arg\min_{a\in A}Gini_index(D,a)$</p>
+<h3 id="3-剪枝处理"><a href="#3-剪枝处理" class="headerlink" title="3.剪枝处理"></a>3.剪枝处理</h3><p>剪枝是决策树学习算法中避免过拟合的手段。</p>
+<p><img src="/2018/10/18/西瓜书笔记一/2.png" alt=""></p>
+<p>泛化性能由模型在验证集里的预测精度衡量。</p>
+<p>预剪枝会面临欠拟合的风险，后剪枝的性能更好，但计算上的开销更大。</p>
+<h3 id="4-连续值与缺失值"><a href="#4-连续值与缺失值" class="headerlink" title="4.连续值与缺失值"></a>4.连续值与缺失值</h3><h4 id="连续值"><a href="#连续值" class="headerlink" title="连续值"></a>连续值</h4><p>采用<strong>二分法</strong>对连续属性进行处理。根据属性$a$中出现的所有可能取值，获得候选划分点集合$T_a$,在其中选择最合适的划分点$t$,将数据集$D$分为子集${D_t}^-$和${D_t}^+$两部分。</p>
+<p><img src="/2018/10/18/西瓜书笔记一/3.png" alt=""></p>
+<p>需要注意的是，连续属性在决策树中可以多次作为划分属性，每次需要重新选择合适的划分点。</p>
+<h4 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h4><ul>
+<li><p>如何在属性值缺失的情况下进行划分属性选择？</p>
+<p>重新定义属性值缺失情况下信息增益的计算公式</p>
+<p>$\tilde{D}$：$D$中在属性$a$上没有缺失值的样本子集</p>
+<p>$\tilde{D}^v$: $\tilde{D}$中在属性$a$上取值为$a^v$的样本子集</p>
+<p>$\tilde{D}_k$: $\tilde{D}$中属于第$k$类的样本子集</p>
+<p>假定为每个样本<strong>$x$</strong>赋予一个权重$\omega_x$,定义以下比例项：</p>
+<p><img src="/2018/10/18/西瓜书笔记一/4.png" alt=""></p>
+<p><img src="/2018/10/18/西瓜书笔记一/5.png" alt=""></p>
+</li>
+<li><p>给定划分属性，若样本在该属性上的值缺失，如何对样本进行划分？</p>
+</li>
+</ul>
+<p>若样本$x$在划分属性$a$的取值已知，则将$x$划入与其取值对应的子节点，且样本权重在子节点中保持$\omega_x$;若样本$x$在划分属性$a$上的取值未知，则将$x$同时划入所有子节点，且样本权重在属性$a^v$对应的子节点中调整为$\tilde{r}_v\omega_x$,即直观来说就是把同一个样本以不同的概率划入到不同的子节点中去。</p>
 
-
-          
-        <h2 id="菜鸟程序媛，算法实习生"><a href="#菜鸟程序媛，算法实习生" class="headerlink" title="菜鸟程序媛，算法实习生~"></a>菜鸟程序媛，算法实习生~</h2>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/18/西瓜书笔记一/">西瓜书笔记1--决策树算法</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Qiushuang Gao</a></p>
+        <p><span>发布时间:</span>2018-10-18, 14:45:10</p>
+        <p><span>最后更新:</span>2018-10-18, 17:07:08</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/18/西瓜书笔记一/" title="西瓜书笔记1--决策树算法">http://yoursite.com/2018/10/18/西瓜书笔记一/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/10/18/西瓜书笔记一/　　作者: Qiushuang Gao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/16/CS231课程笔记三/">
+                    CS231课程笔记3--损失函数与优化
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类决策树"><span class="toc-number">1.</span> <span class="toc-text">分类决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-决策树构建基本流程"><span class="toc-number">1.1.</span> <span class="toc-text">1.决策树构建基本流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-划分属性选择算法"><span class="toc-number">1.2.</span> <span class="toc-text">2.划分属性选择算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#信息增益"><span class="toc-number">1.2.1.</span> <span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增益率"><span class="toc-number">1.2.2.</span> <span class="toc-text">增益率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基尼指数"><span class="toc-number">1.2.3.</span> <span class="toc-text">基尼指数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-剪枝处理"><span class="toc-number">1.3.</span> <span class="toc-text">3.剪枝处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-连续值与缺失值"><span class="toc-number">1.4.</span> <span class="toc-text">4.连续值与缺失值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#连续值"><span class="toc-number">1.4.1.</span> <span class="toc-text">连续值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺失值"><span class="toc-number">1.4.2.</span> <span class="toc-text">缺失值</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -339,7 +450,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ABOUT ME　| Qiushuang的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"西瓜书笔记1--决策树算法　| Qiushuang的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -354,6 +465,24 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/16/CS231课程笔记三/" title="下一篇: CS231课程笔记3--损失函数与优化">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/西瓜书笔记一/">西瓜书笔记1--决策树算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/CS231课程笔记三/">CS231课程笔记3--损失函数与优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/13/CS231课程笔记二/">CS231课程笔记2--图像分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/13/CS231课程笔记一/">CS231课程笔记1--Introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/新的博客/">这是我的第一篇博客</a></li></ul>
 
 
 
