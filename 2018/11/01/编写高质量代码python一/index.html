@@ -16,22 +16,26 @@
 
 
 
-<meta name="description" content="图像分类基础算法 K近邻算法，线性分类器">
-<meta name="keywords" content="CS231,计算机视觉">
+<meta name="description" content="No1.理解Pythonic概念 No2.编写Pythonic代码 No3.理解Python与C语言的不同 No4.在代码中适当添加注释 No5.通过适当添加空行使代码布局优雅 No6.编写函数的原则 No7.将常量集中到一个文件">
+<meta name="keywords" content="编程规范">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS231课程笔记2--图像分类">
-<meta property="og:url" content="http://yoursite.com/2018/10/13/CS231课程笔记二/index.html">
+<meta property="og:title" content="改善python程序的91个建议--1.引论">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/编写高质量代码python一/index.html">
 <meta property="og:site_name" content="Qiushuang的博客">
-<meta property="og:description" content="图像分类基础算法 K近邻算法，线性分类器">
+<meta property="og:description" content="No1.理解Pythonic概念 No2.编写Pythonic代码 No3.理解Python与C语言的不同 No4.在代码中适当添加注释 No5.通过适当添加空行使代码布局优雅 No6.编写函数的原则 No7.将常量集中到一个文件">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/10/13/CS231课程笔记二/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/13/CS231课程笔记二/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/13/CS231课程笔记二/3.png">
-<meta property="og:updated_time" content="2018-10-16T08:36:38.334Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/7.png">
+<meta property="og:updated_time" content="2018-11-01T02:56:28.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS231课程笔记2--图像分类">
-<meta name="twitter:description" content="图像分类基础算法 K近邻算法，线性分类器">
-<meta name="twitter:image" content="http://yoursite.com/2018/10/13/CS231课程笔记二/1.png">
+<meta name="twitter:title" content="改善python程序的91个建议--1.引论">
+<meta name="twitter:description" content="No1.理解Pythonic概念 No2.编写Pythonic代码 No3.理解Python与C语言的不同 No4.在代码中适当添加注释 No5.通过适当添加空行使代码布局优雅 No6.编写函数的原则 No7.将常量集中到一个文件">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/01/编写高质量代码python一/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -63,7 +67,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>CS231课程笔记2--图像分类 | Qiushuang的博客</title>
+<title>改善python程序的91个建议--1.引论 | Qiushuang的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -261,11 +265,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-CS231课程笔记二" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-编写高质量代码python一" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/10/13/CS231课程笔记二/" class="article-date">
-      <time datetime="2018-10-13T09:07:51.000Z" itemprop="datePublished">2018-10-13</time>
+      <a href="/2018/11/01/编写高质量代码python一/" class="article-date">
+      <time datetime="2018-11-01T02:38:12.000Z" itemprop="datePublished">2018-11-01</time>
 </a>
 
 
@@ -280,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CS231课程笔记2--图像分类
+      改善python程序的91个建议--1.引论
     </h1>
   
 
@@ -289,13 +293,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/深度学习/">深度学习</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS231/">CS231</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机视觉/">计算机视觉</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程规范/">编程规范</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,45 +309,48 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>图像分类基础算法</p>
-<p>K近邻算法，线性分类器</p>
+        <p>No1.理解Pythonic概念</p>
+<p>No2.编写Pythonic代码</p>
+<p>No3.理解Python与C语言的不同</p>
+<p>No4.在代码中适当添加注释</p>
+<p>No5.通过适当添加空行使代码布局优雅</p>
+<p>No6.编写函数的原则</p>
+<p>No7.将常量集中到一个文件</p>
 <a id="more"></a>
-<h2 id="图像分类：计算机视觉的核心"><a href="#图像分类：计算机视觉的核心" class="headerlink" title="图像分类：计算机视觉的核心"></a>图像分类：计算机视觉的核心</h2><p>所谓图像分类问题，就是已有固定的分类标签集合，然后对于输入的图像，从分类标签集合中找出一个分类标签，最后把分类标签分配给该输入图像。</p>
-<p><strong>困难和挑战</strong>：对于人来说，识别出一个像“猫”一样视觉概念是简单至极的，然而从计算机视觉算法的角度来看就值得深思了。计算机呈现图片的方式是一堆像素点（如800*600），每个像素点有红黄蓝三个维度的数据，图像是以3维数组来表示的，数组中的元素是亮度值。</p>
-<p>计算机视觉算法在图像识别方面遇到的困难包括</p>
+<h3 id="No1-理解Pythonic概念"><a href="#No1-理解Pythonic概念" class="headerlink" title="No1.理解Pythonic概念"></a>No1.理解Pythonic概念</h3><p><img src="/2018/11/01/编写高质量代码python一/1.png" alt="img"></p>
+<h4 id="避免这种用法"><a href="#避免这种用法" class="headerlink" title="避免这种用法"></a>避免这种用法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(list1)):</span><br><span class="line">	do_sth_with(list1[i])</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> list1:</span><br><span class="line">	do_sth_with(k)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/01/编写高质量代码python一/2.png" alt="img"></p>
+<h3 id="No2-编写Pythonic代码"><a href="#No2-编写Pythonic代码" class="headerlink" title="No2.编写Pythonic代码"></a><strong>No2.编写Pythonic代码</strong></h3><p><strong>（1）避免劣化代码</strong></p>
 <ul>
-<li><strong>语义鸿沟（Semantic gap）</strong>：很难从巨大的像素值数组中提取出图像的语义标签</li>
-<li><strong>视角变化</strong> <strong>（Viewpoint variation）</strong>：当摄像机角度变化时像素值会发生巨大变化</li>
-<li><strong>光照条件（Illumination conditions）</strong></li>
-<li><strong>形变（Deformation）</strong></li>
-<li><strong>遮挡（Occlusion）</strong></li>
-<li><strong>背景干扰（Background clutter）</strong></li>
-<li><strong>类内差异（Intra-class variation）</strong>：同种物体年龄外表上有很大不同</li>
+<li><p>避免只用大小写来区分不同的对象</p>
+</li>
+<li><p>避免使用容易引起混淆的名称</p>
+</li>
 </ul>
-<p>面对以上所有变化及其组合，好的图像分类模型能够在面对上述挑战和干扰时具有很好的鲁棒性。</p>
-<h2 id="图像分类方法"><a href="#图像分类方法" class="headerlink" title="图像分类方法"></a>图像分类方法</h2><p>我们希望分类算法不是只适用于某个特定的种类，而是能够对所有种类的物体进行分类识别。</p>
-<h3 id="数据驱动的方法："><a href="#数据驱动的方法：" class="headerlink" title="数据驱动的方法："></a>数据驱动的方法：</h3><ul>
-<li><strong>输入</strong>：输入是包含N个图像的集合，每个图像的标签是K种分类标签中的一种。这个集合称为训练集</li>
-<li><strong>学习</strong>：使用输入的数据集训练分类器</li>
-<li><strong>评价</strong>：让分类器来预测新的图像的分类标签，并以此来评价分类器的质量</li>
+<p><img src="/2018/11/01/编写高质量代码python一/3.png" alt="img"></p>
+<ul>
+<li>不要害怕过长的变量名</li>
 </ul>
-<h4 id="1-最近邻算法（Nearest-Neighbor分类器）"><a href="#1-最近邻算法（Nearest-Neighbor分类器）" class="headerlink" title="1. 最近邻算法（Nearest Neighbor分类器）"></a>1. 最近邻算法（Nearest Neighbor分类器）</h4><p><strong>训练</strong>：记录所有的数据和标签    <strong>预测</strong>：返回与输入图片最相近的样本数据的标签</p>
-<p>在现实使用过程中，我们希望分类器的训练过程更长，而测试过程很快，但最近邻算法由于需要将测试图片与训练集里的所有样本进行比较，测试时间会很长，且预测效果不好。</p>
-<h4 id="2-K-近邻算法（K-Nearest-Neighbors"><a href="#2-K-近邻算法（K-Nearest-Neighbors" class="headerlink" title="2. K-近邻算法（K-Nearest Neighbors)"></a>2. K-近邻算法（K-Nearest Neighbors)</h4><p>在最近邻算法基础上做出一些改进，不只是寻找最近的1个点，而是找到最近的K个点，在这些点中进行投票，得到测试图片的标签。k值更大时，可以让分类的效果更平滑，使得分类器对于噪声更具有鲁棒性。</p>
-<p>衡量两个图片的相似性方法，最简单的是计算两张图片像素矩阵的<strong>L1距离</strong>（曼哈顿距离）：$d_1(I_1,I_2)=\sum_P|I_1^P-I_2^p|$</p>
-<p><strong>L2距离</strong>（欧氏距离）：$d_2(I_1,I_2) = \sqrt{\sum_p(I_1^P-I_2^p)^2}$</p>
-<p>比较：L1距离取决于坐标系统的选择，当转动坐标轴时L1距离会发生变化，但L2距离不会。如果输入的特征向量对任务有重要的意义，则L1更合适，如果向量没有明确的含义，L2距离更加自然。</p>
-<p><strong>超参数</strong>:k的取值和距离的衡量方式选择都是超参数，超参数是无法在学习过程中得到的，而是要我们要给模型设置的。超参数的设置是依赖问题和数据的，所以一般要尝试不同的可能取值来检测哪种超参数的表现更好。</p>
-<p>在设置超参数的过程中，不能在训练集或者测试集上寻找表现最好的超参数，而是应该将数据分为<strong>训练集，验证集和测试集</strong>，在训练集上运用不同的超参数来训练模型，在验证集上评估模型的效果，选择在验证集上效果最好的一组超参，再将这个模型运用在测试集上。对于小规模的数据集，还可以采用交叉验证方法：将测试集以外的数据分成K份，在其中（K-1)份上训练模型，在第K份数据上检验效果。</p>
-<p><strong>KNN</strong>算法在图像分类的问题中不会被用到，因为在预测数据时运算时间很长，L1和L2这种向量距离用在图像比较上不太合适，无法表示图像之间视觉感知的差异。另一个问题是维度灾难，KNN算法需要用训练数据将样本空间分成几个小的部分，若需要达到好的效果要求样本能够密集地分布在样本空间中，那么在高维数据中训练数据的数量就要是指数倍的增加，这是很难实现的。</p>
-<p><img src="/2018/10/13/CS231课程笔记二/1.png" alt=""></p>
-<h4 id="3-线性分类器"><a href="#3-线性分类器" class="headerlink" title="3. 线性分类器"></a>3. 线性分类器</h4><p>线性分类方法是一种参数模型，通过训练数据学习出一组参数W用于预测新的样本，而非像KNN方法一样需要存储全部的训练数据，提高了测试的效率。在参数模型中，我们会获得一个包含输入数据x和参数W的函数$f(x,W)$,得到十个数字表示10个类别对应的分数。线性分类器中$f(x,W) = Wx+b$,b是偏差项，不与数据交互，只提供每个类别的偏好值。</p>
-<p><img src="/2018/10/13/CS231课程笔记二/2.png" alt=""></p>
-<p>线性分类模型可以理解为一种模板匹配方法，W矩阵中的每一行相当于每个图像类别学习出的模板。通过输入数据与模板的成绩得到图像的像素点与模板之间的相似之处，而偏差项给出了每个类的偏离量。因此线性分类器有每个类别只学习一个模板的限制。</p>
-<p>线性分类器还可以在高维空间的角度来理解，每张图片代表着一个高维空间中的点，线性模型试图通过画出平面对不同类别的图像进行分割。</p>
-<p>但线性模型的缺点是有很多形式的数据不能用线性平面进行分割。</p>
-<p><img src="/2018/10/13/CS231课程笔记二/3.png" alt=""></p>
-
+<p><strong>（2）深入认识Python</strong></p>
+<h3 id="No3-理解Python与C语言的不同"><a href="#No3-理解Python与C语言的不同" class="headerlink" title="No3.理解Python与C语言的不同"></a><strong>No3.理解Python与C语言的不同</strong></h3><h3 id="No4-在代码中适当添加注释"><a href="#No4-在代码中适当添加注释" class="headerlink" title="No4.在代码中适当添加注释"></a><strong>No4.在代码中适当添加注释</strong></h3><p> 块注释，行注释以及文档注释</p>
+<p>1）使用块或行注释的时候仅仅注释那些复杂的操作、算法</p>
+<p>2）注释和代码隔开一定的距离</p>
+<p>3）外部可访问的函数和方法添加文档注释，描述方法的功能，并对参数、返回值以及可能发生的异常进行说明</p>
+<p>4）推荐在文件通中包含copyright申明，模块描述等</p>
+<h3 id="No5-通过适当添加空行使代码布局优雅"><a href="#No5-通过适当添加空行使代码布局优雅" class="headerlink" title="No5.通过适当添加空行使代码布局优雅"></a><strong>No5.通过适当添加空行使代码布局优雅</strong></h3><p><strong>Python 代码布局</strong></p>
+<p><img src="/2018/11/01/编写高质量代码python一/4.png" alt="img"></p>
+<p><img src="/2018/11/01/编写高质量代码python一/5.png" alt="img"> <img src="/2018/11/01/编写高质量代码python一/6.png" alt="img"></p>
+<h3 id="No6-编写函数的原则"><a href="#No6-编写函数的原则" class="headerlink" title="No6.编写函数的原则"></a><strong>No6.编写函数的原则</strong></h3><p><strong>原则1：函数设计要尽量短小，不能嵌套过深</strong></p>
+<p><strong>原则2：函数申明应该做到合理，简单，易于使用</strong></p>
+<p><strong>原则3：函数参数设计应该考虑向下兼容</strong></p>
+<p><strong><img src="/2018/11/01/编写高质量代码python一/7.png" alt="img"></strong></p>
+<p>这样的变化会使函数调用的接口发生改变，更好的方法是加入默认参数来避免这种退化，第一行代码改成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">readfile</span><span class="params">(filename,logger=logger.info)</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>原则4：一个函数只做一件事，保证函数语句粒度的一致性</strong></p>
+<p><strong>其他：不要在函数中定义可变对象为默认值；使用异常代替错误</strong></p>
+<h3 id="No7-将常量集中到一个文件"><a href="#No7-将常量集中到一个文件" class="headerlink" title="No7.将常量集中到一个文件"></a><strong>No7.</strong>将常量集中到一个文件</h3>
       
     </div>
     
@@ -351,13 +358,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/10/13/CS231课程笔记二/">CS231课程笔记2--图像分类</a></p>
+        <p><span>本文标题:</span><a href="/2018/11/01/编写高质量代码python一/">改善python程序的91个建议--1.引论</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Qiushuang Gao</a></p>
-        <p><span>发布时间:</span>2018-10-13, 17:07:51</p>
-        <p><span>最后更新:</span>2018-10-16, 16:36:38</p>
+        <p><span>发布时间:</span>2018-11-01, 10:38:12</p>
+        <p><span>最后更新:</span>2018-11-01, 10:56:28</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/10/13/CS231课程笔记二/" title="CS231课程笔记2--图像分类">http://yoursite.com/2018/10/13/CS231课程笔记二/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/10/13/CS231课程笔记二/　　作者: Qiushuang Gao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/01/编写高质量代码python一/" title="改善python程序的91个建议--1.引论">http://yoursite.com/2018/11/01/编写高质量代码python一/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/01/编写高质量代码python一/　　作者: Qiushuang Gao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -369,16 +376,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/10/16/CS231课程笔记三/">
-                    CS231课程笔记3--损失函数与优化
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/10/13/CS231课程笔记一/">
-                    CS231课程笔记1--Introduction
+                <a href="/2018/10/18/西瓜书笔记一/">
+                    西瓜书笔记1--决策树算法
                 </a>
             </div>
         
@@ -390,7 +391,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#图像分类：计算机视觉的核心"><span class="toc-number">1.</span> <span class="toc-text">图像分类：计算机视觉的核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像分类方法"><span class="toc-number">2.</span> <span class="toc-text">图像分类方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据驱动的方法："><span class="toc-number">2.1.</span> <span class="toc-text">数据驱动的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-最近邻算法（Nearest-Neighbor分类器）"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 最近邻算法（Nearest Neighbor分类器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-K-近邻算法（K-Nearest-Neighbors"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. K-近邻算法（K-Nearest Neighbors)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-线性分类器"><span class="toc-number">2.1.3.</span> <span class="toc-text">3. 线性分类器</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#No1-理解Pythonic概念"><span class="toc-number">1.</span> <span class="toc-text">No1.理解Pythonic概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#避免这种用法"><span class="toc-number">1.1.</span> <span class="toc-text">避免这种用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No2-编写Pythonic代码"><span class="toc-number">2.</span> <span class="toc-text">No2.编写Pythonic代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No3-理解Python与C语言的不同"><span class="toc-number">3.</span> <span class="toc-text">No3.理解Python与C语言的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No4-在代码中适当添加注释"><span class="toc-number">4.</span> <span class="toc-text">No4.在代码中适当添加注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No5-通过适当添加空行使代码布局优雅"><span class="toc-number">5.</span> <span class="toc-text">No5.通过适当添加空行使代码布局优雅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No6-编写函数的原则"><span class="toc-number">6.</span> <span class="toc-text">No6.编写函数的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#No7-将常量集中到一个文件"><span class="toc-number">7.</span> <span class="toc-text">No7.将常量集中到一个文件</span></a></li></ol>
         
     </div>
     <style>
@@ -426,7 +427,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"CS231课程笔记2--图像分类　| Qiushuang的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"改善python程序的91个建议--1.引论　| Qiushuang的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -446,15 +447,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/10/16/CS231课程笔记三/" title="上一篇: CS231课程笔记3--损失函数与优化">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/10/13/CS231课程笔记一/" title="下一篇: CS231课程笔记1--Introduction">
+            <a href="/2018/10/18/西瓜书笔记一/" title="下一篇: 西瓜书笔记1--决策树算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
